@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "536728035015",
+    "firebase_url": "https://quanlynhaan-26797-default-rtdb.firebaseio.com",
+    "project_id": "quanlynhaan-26797",
+    "storage_bucket": "quanlynhaan-26797.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536728035015:android:3a7ff01a5b1cbbe78ba8e2",
+        "android_client_info": {
+          "package_name": "com.example.qlnhaan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536728035015-37phjep51st1ol2btvhm53seamivijd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBezHjZgIFrL8AT87HXEO-fPjYpj9x9VF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536728035015-37phjep51st1ol2btvhm53seamivijd1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
