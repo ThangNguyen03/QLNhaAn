@@ -3,6 +3,7 @@ package com.example.qlnhaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,16 +39,29 @@ public class DangNhap extends AppCompatActivity {
             public void onClick(View view) {
                 String pass=edtpass.getText().toString().trim();
                 String email=edtemail.getText().toString().trim();
+                if(email.isEmpty()){
+                    edtemail.setError("Email không được để trống");
+                    edtemail.requestFocus();
+                    return;
+                }
+                if(pass.isEmpty()){
+                    edtpass.setError("Password không được để trống");
+                    edtpass.requestFocus();
+                    return;
+                }
                 mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(DangNhap.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(DangNhap.this,TrangChu.class);
+                            startActivity(intent);
                         }else {
-                            Toast.makeText(DangNhap.this,"Đăng nhập thất bại",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DangNhap.this,"Email hoặc Pasword không hợp lệ",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
             }
         });
     }}

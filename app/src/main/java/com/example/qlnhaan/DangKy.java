@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import Model.Admin;
 
@@ -46,7 +48,28 @@ public class DangKy extends AppCompatActivity {
                 String pass=edtpass.getText().toString().trim();
                 String email=edtemail.getText().toString().trim();
                 String cfpass=edtconfirmpass.getText().toString().trim();
-                if(pass.equals(cfpass)){
+                if(email.isEmpty()){
+                    edtemail.setError("Email không được để trống");
+                    edtemail.requestFocus();
+                    return;
+                }
+
+                if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    edtemail.setError("Email không đúng định dạng");
+                    edtemail.requestFocus();
+                    return;
+                }
+                if(pass.length()<6){
+                    edtpass.setError("Mât khẩu phải lớn hơn 6 ký tự");
+                    edtpass.requestFocus();
+                    return;
+                }
+                if(!cfpass.equals(pass)){
+                    edtconfirmpass.getText().clear();
+                    edtconfirmpass.setError("Xác nhận mật khẩu không đúng");
+                    edtconfirmpass.requestFocus();
+                    return;
+                }
                     mAuth.createUserWithEmailAndPassword(email,pass)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
@@ -65,12 +88,11 @@ public class DangKy extends AppCompatActivity {
                                                     }
                                                 }
                                             });
+                                }else{
+                                    Toast.makeText(DangKy.this,"Email đã tồn tại",Toast.LENGTH_SHORT).show();
                                 }
                             }
-                        });}else{
-                    Toast.makeText(DangKy.this,"Xác nhận  mật khẩu không đúng",Toast.LENGTH_SHORT).show();
-                    edtconfirmpass.getText().clear();
-                }
+                        });
 
             }
         });
