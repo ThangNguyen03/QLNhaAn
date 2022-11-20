@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/QLNhaAn/app/src/main/res/drawable/combo.xml" value="0.23" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/drawable/combo1.xml" value="0.23" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_dang_ky.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_dang_nhap.xml" value="0.25416666666666665" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_quan_ly_nhan_vien.xml" value="0.25052083333333336" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_trang_chu.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/app.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listadmin.xml" value="0.25416666666666665" />

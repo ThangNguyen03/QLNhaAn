@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.qlnhaan" >
+    package="com.example.qlnhaan">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,7 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QLNhaAn"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".QuanLyThucDon"
+            android:exported="false" />
+        <activity
+            android:name=".QuanLyThongKe"
+            android:exported="false" />
+        <activity
+            android:name=".QuanLyBanAn"
+            android:exported="false" />
+        <activity
+            android:name=".QuanLyNhanVien"
+            android:exported="false" />
         <activity
             android:name=".TrangChu"
             android:exported="false" />
@@ -26,7 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".App"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +21,8 @@ public class DangNhap extends AppCompatActivity {
     Button btnDangNhap,btnHuy;
     EditText edtemail,edtpass;
     private FirebaseAuth mAuth;
+    String tenTTDN="Login";
+    CheckBox chkLuuDN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +31,7 @@ public class DangNhap extends AppCompatActivity {
         edtpass=findViewById(R.id.edtpass);
         btnDangNhap=findViewById(R.id.btnDangNhap);
         btnHuy=findViewById(R.id.btnHuy);
+        //chkLuuDN=findViewById(R.id.chkLuuDN);
         mAuth = FirebaseAuth.getInstance();
         btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,10 +54,12 @@ public class DangNhap extends AppCompatActivity {
                     edtpass.requestFocus();
                     return;
                 }
+
                 mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+
                             Toast.makeText(DangNhap.this,"Đăng nhập thành công",Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(DangNhap.this,TrangChu.class);
                             startActivity(intent);
@@ -64,4 +71,32 @@ public class DangNhap extends AppCompatActivity {
 
             }
         });
-    }}
+    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        saveLogin();
+//    }
+//    public  void saveLogin(){
+//        SharedPreferences preferences=getSharedPreferences(tenTTDN,MODE_PRIVATE);
+//        SharedPreferences.Editor editor=preferences.edit();
+//        editor.putString("Email",edtemail.getText().toString());
+//        editor.putString("Pass",edtpass.getText().toString());
+//        editor.putBoolean("Save",chkLuuDN.isChecked());
+//        editor.commit();
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        SharedPreferences preferences=getSharedPreferences(tenTTDN,MODE_PRIVATE);
+//        String email=  preferences.getString("Email","");
+//        String pass=  preferences.getString("Pass","");
+//        boolean save=preferences.getBoolean("Save",false);
+//        if(save){
+//            edtemail.setText(email);
+//            edtpass.setText(pass);
+//            chkLuuDN.setChecked(save);
+//        }
+//        super.onResume();
+//    }
+}

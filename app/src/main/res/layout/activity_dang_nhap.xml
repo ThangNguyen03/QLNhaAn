@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
+        android:inputType="text"
         android:hint="Email:"/>
     <EditText
         android:inputType="textPassword"
@@ -28,6 +29,12 @@
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
         android:hint="Password:"/>
+<!--    <CheckBox-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:id="@+id/chkLuuDN"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Lưu đăng nhập"/>-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

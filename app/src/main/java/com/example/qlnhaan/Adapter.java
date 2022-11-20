@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 import Model.Admin;
 
@@ -39,13 +38,9 @@ public class Adapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater=LayoutInflater.from(viewGroup.getContext());
-        View view1=inflater.inflate(R.layout.listadmin,viewGroup,false);
+        View view1=inflater.inflate(R.layout.listthanhtoan,viewGroup,false);
 
-        TextView txtemail=view1.findViewById(R.id.txtemail);
-        txtemail.setText(dsAmin.get(i).getEmail());
 
-        TextView txtpass=view1.findViewById(R.id.txtpass);
-        txtpass.setText(dsAmin.get(i).getPassword());
         return view1;
     }
 }
