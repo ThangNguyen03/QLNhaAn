@@ -1,7 +1,7 @@
 package Model;
 
 public class NhanVien {
-    public String manv,tennv,gioitinh,ngaysinh,email,matkhau;
+    public String manv,tennv,gioitinh,ngaysinh,sdt,email,matkhau;
 
     public String getManv() {
         return manv;
@@ -51,15 +51,25 @@ public class NhanVien {
         this.matkhau = matkhau;
     }
 
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
     public NhanVien() {
     }
 
-    public NhanVien(String manv, String tennv, String gioitinh, String ngaysinh, String email, String matkhau) {
-        this.manv = manv;
+    public NhanVien(String tennv, String gioitinh, String ngaysinh, String sdt, String email, String matkhau) {
         this.tennv = tennv;
         this.gioitinh = gioitinh;
         this.ngaysinh = ngaysinh;
+        this.sdt = sdt;
         this.email = email;
         this.matkhau = matkhau;
     }
+
+
 }

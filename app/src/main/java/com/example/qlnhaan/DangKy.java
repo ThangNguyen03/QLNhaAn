@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,39 +24,71 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import Model.Admin;
+import Model.NhanVien;
 
 public class DangKy extends AppCompatActivity {
-   // Adapter adapter;
-    //List<Admin> dsAdim;
+
     private FirebaseAuth mAuth;
     Button btnDangKy,btnHuy,btnXem;
-    EditText edtemail,edtpass,edtconfirmpass;
-    //ListView litadmin;
+    EditText edtemail,edtpass,edtconfirmpass,edttennv,edtsdt,edtngaysinh;
+    RadioButton radNam,radNu;
+    RadioGroup radioG;
+    TextView txtGT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_ky);
         btnDangKy=findViewById(R.id.btnDangKy);
         btnHuy=findViewById(R.id.btnHuy);
-       // btnXem=findViewById(R.id.btnXem);
+        edttennv=findViewById(R.id.edttennv);
+        edtsdt=findViewById(R.id.edtsdt);
+        edtngaysinh=findViewById(R.id.edtngaysinh);
         edtemail=findViewById(R.id.edtemail);
         edtpass=findViewById(R.id.edtpass);
+        radNam=findViewById(R.id.radNam);
+        radNu=findViewById(R.id.radNu);
+        radioG=findViewById(R.id.radioG);
+        txtGT=findViewById(R.id.txtGT);
         mAuth = FirebaseAuth.getInstance();
         edtconfirmpass=findViewById(R.id.edtconfirmpass);
-        //litadmin=findViewById(R.id.litadmin);
+
 
         btnDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String tennv=edttennv.getText().toString().trim();
+                String ngaysinh=edtngaysinh.getText().toString().trim();
+                String sdt=edtsdt.getText().toString().trim();
                 String pass=edtpass.getText().toString().trim();
                 String email=edtemail.getText().toString().trim();
                 String cfpass=edtconfirmpass.getText().toString().trim();
+
+                if(tennv.isEmpty()){
+                    edttennv.setError("Tên không được để trống");
+                    edttennv.requestFocus();
+                    return;
+                }
+                if(!(radNam.isChecked()||radNu.isChecked())){
+                    txtGT.setError("Giới tính không được để trống");
+                    radNu.requestFocus();
+                    return;
+                }
+                if(ngaysinh.isEmpty()){
+                    edtngaysinh.setError("Ngày sinh không được để trống");
+                    edtngaysinh.requestFocus();
+                    return;
+                }
+                if(sdt.isEmpty()){
+                    edtsdt.setError("Số điện thoại không được để trống");
+                    edtsdt.requestFocus();
+                    return;
+                }
+
                 if(email.isEmpty()){
                     edtemail.setError("Email không được để trống");
                     edtemail.requestFocus();
                     return;
                 }
-
                 if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     edtemail.setError("Email không đúng định dạng");
                     edtemail.requestFocus();
@@ -70,15 +105,22 @@ public class DangKy extends AppCompatActivity {
                     edtconfirmpass.requestFocus();
                     return;
                 }
+                int chkrad=radioG.getCheckedRadioButtonId();
+                String gt;
+                if(chkrad==R.id.radNam){
+                    gt="Nam";
+                }else{
+                    gt="Nữ";
+                }
                     mAuth.createUserWithEmailAndPassword(email,pass)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Admin admin=new Admin(email,pass);
-                                    FirebaseDatabase.getInstance().getReference("User")
+                                    NhanVien nhanVien=new NhanVien(tennv,gt,ngaysinh,sdt,email,pass);
+                                    FirebaseDatabase.getInstance().getReference("employees")
                                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                            .setValue(admin).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            .setValue(nhanVien).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()){
