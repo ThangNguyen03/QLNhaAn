@@ -1,8 +1,10 @@
 package com.example.qlnhaan;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,9 +16,14 @@ import Model.NhanVien;
 
 public class AdapterDSNV extends RecyclerView.Adapter<AdapterDSNV.UserViewHolder> {
     List<NhanVien> dsNV;
+    private IClick miclick;
+    public  interface IClick{
+        void onclickSuaNV(NhanVien nhanVien);
+    }
 
-    public AdapterDSNV(List<NhanVien> dsNV) {
+    public AdapterDSNV(List<NhanVien> dsNV,IClick click) {
         this.dsNV = dsNV;
+        this.miclick=click;
     }
 
     @NonNull
@@ -35,8 +42,14 @@ public class AdapterDSNV extends RecyclerView.Adapter<AdapterDSNV.UserViewHolder
         holder.txtTen.setText("Họ tên: "+ nhanVien.getTennv());
         holder.txtGT.setText("Giới tính: "+nhanVien.getGioitinh());
         holder.txtNgaySinh.setText("Ngày sinh: "+nhanVien.getNgaysinh());
-        holder.txtSDT.setText("Số điện thoại"+nhanVien.getSdt());
+        holder.txtSDT.setText("Số điện thoại: "+nhanVien.getSdt());
         holder.txtEmail.setText("Email: "+nhanVien.getEmail());
+        holder.btnSuaNV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                miclick.onclickSuaNV(nhanVien);
+            }
+        });
     }
 
     @Override
@@ -47,8 +60,12 @@ public class AdapterDSNV extends RecyclerView.Adapter<AdapterDSNV.UserViewHolder
         return 0;
     }
 
+
+
+
     public  class UserViewHolder extends RecyclerView.ViewHolder{
         TextView txtTen,txtNgaySinh,txtEmail,txtGT,txtSDT;
+        Button btnSuaNV;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTen=itemView.findViewById(R.id.txtTen);
@@ -56,8 +73,11 @@ public class AdapterDSNV extends RecyclerView.Adapter<AdapterDSNV.UserViewHolder
             txtNgaySinh=itemView.findViewById(R.id.txtNS);
             txtSDT=itemView.findViewById(R.id.txtSDT);
             txtEmail=itemView.findViewById(R.id.txtEmail);
+            btnSuaNV=itemView.findViewById(R.id.btnSuaNV);
         }
 
 
+
     }
+
 }

@@ -1,5 +1,8 @@
 package Model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class NhanVien {
     public String manv,tennv,gioitinh,ngaysinh,sdt,email,matkhau;
 
@@ -70,6 +73,16 @@ public class NhanVien {
         this.email = email;
         this.matkhau = matkhau;
     }
+public Map<String,Object> toMap(){
+    HashMap<String,Object> result=new HashMap<>();
+    result.put("tennv",tennv);
+    result.put("gioitinh",gioitinh);
+    result.put("ngaysinh",ngaysinh);
+    result.put("sdt",sdt);
+    result.put("email",email);
+    result.put("matkhau",matkhau);
+    return result;
 
+}
 
 }

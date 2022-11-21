@@ -1,6 +1,7 @@
 package com.example.qlnhaan;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
@@ -28,7 +31,7 @@ import Model.NhanVien;
 
 public class DangKy extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
     Button btnDangKy,btnHuy,btnXem;
     EditText edtemail,edtpass,edtconfirmpass,edttennv,edtsdt,edtngaysinh;
     RadioButton radNam,radNu;
@@ -112,6 +115,7 @@ public class DangKy extends AppCompatActivity {
                 }else{
                     gt="Nữ";
                 }
+
                     mAuth.createUserWithEmailAndPassword(email,pass)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
@@ -145,4 +149,15 @@ public class DangKy extends AppCompatActivity {
             }
         });
     }
+//    private  void onclickDK(NhanVien nhanVien){FirebaseDatabase database=FirebaseDatabase.getInstance();
+//        DatabaseReference myref=database.getReference("employees");
+//        String  path=String.valueOf(nhanVien.getEmail());
+//        myref.child(path).setValue(nhanVien, new DatabaseReference.CompletionListener() {
+//            @Override
+//            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+//                Toast.makeText(DangKy.this,"Đăng ký thành công",Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+
 }
