@@ -2,11 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#C0EAC1"
+    android:layout_marginTop="20dp"
     android:orientation="vertical">
         <TextView
             android:id="@+id/txtTen"
             android:text="Ten"
-            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />

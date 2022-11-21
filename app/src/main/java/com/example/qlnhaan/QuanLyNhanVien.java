@@ -24,22 +24,22 @@ import Model.NhanVien;
 
 public class QuanLyNhanVien extends AppCompatActivity {
 List<NhanVien> dsNV;
-AdapterNV adapterDSNV;
-ListView litnv;
+AdapterDSNV adapterDSNV;
+//ListView litnv;
 RecyclerView recNV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quan_ly_nhan_vien);
-        litnv=findViewById(R.id.litnv);
-       // recNV=findViewById(R.id.recNV);
-       // LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-//        recNV.setLayoutManager(linearLayoutManager);
-//        DividerItemDecoration dividerItemDecoration=new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
-//        recNV.addItemDecoration(dividerItemDecoration);
+        //litnv=findViewById(R.id.recNV);
+        recNV=findViewById(R.id.recNV);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        recNV.setLayoutManager(linearLayoutManager);
+       DividerItemDecoration dividerItemDecoration=new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
+        recNV.addItemDecoration(dividerItemDecoration);
         dsNV=new ArrayList<NhanVien>();
-        adapterDSNV=new AdapterNV(dsNV);
-        litnv.setAdapter(adapterDSNV);
+        adapterDSNV=new AdapterDSNV(dsNV);
+        recNV.setAdapter(adapterDSNV);
 
         HienThiListNV();
     }
