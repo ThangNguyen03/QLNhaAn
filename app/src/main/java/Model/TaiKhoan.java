@@ -1,6 +1,6 @@
 package Model;
 
-public class Admin {
+public class TaiKhoan {
     public String email,password;
 
     public String getEmail() {
@@ -19,10 +19,10 @@ public class Admin {
         this.password = password;
     }
 
-    public Admin() {
+    public TaiKhoan() {
     }
 
-    public Admin(String email, String password) {
+    public TaiKhoan(String email, String password) {
         this.email = email;
         this.password = password;
     }

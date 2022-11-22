@@ -1,16 +1,19 @@
 package Model;
 
+import com.google.firebase.database.Exclude;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class NhanVien {
-    public String manv,tennv,gioitinh,ngaysinh,sdt,email,matkhau;
+public  int manv;
+    public String tennv,gioitinh,ngaysinh,sdt,email,matkhau;
 
-    public String getManv() {
+    public int getManv() {
         return manv;
     }
 
-    public void setManv(String manv) {
+    public void setManv(int manv) {
         this.manv = manv;
     }
 
@@ -73,8 +76,20 @@ public class NhanVien {
         this.email = email;
         this.matkhau = matkhau;
     }
-public Map<String,Object> toMap(){
+
+    public NhanVien(int manv, String tennv, String gioitinh, String ngaysinh, String sdt, String email, String matkhau) {
+        this.manv = manv;
+        this.tennv = tennv;
+        this.gioitinh = gioitinh;
+        this.ngaysinh = ngaysinh;
+        this.sdt = sdt;
+        this.email = email;
+        this.matkhau = matkhau;
+    }
+
+    public Map<String,Object> toMap(){
     HashMap<String,Object> result=new HashMap<>();
+    result.put("manv",manv);
     result.put("tennv",tennv);
     result.put("gioitinh",gioitinh);
     result.put("ngaysinh",ngaysinh);

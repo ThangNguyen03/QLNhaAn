@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ public class AdapterDSNV extends RecyclerView.Adapter<AdapterDSNV.UserViewHolder
     private IClick miclick;
     public  interface IClick{
         void onclickSuaNV(NhanVien nhanVien);
+        void onClickXoaNV(NhanVien nhanVien);
     }
 
     public AdapterDSNV(List<NhanVien> dsNV,IClick click) {
@@ -39,19 +41,26 @@ public class AdapterDSNV extends RecyclerView.Adapter<AdapterDSNV.UserViewHolder
         if(nhanVien==null){
             return;
         }
+
         holder.txtTen.setText("Họ tên: "+ nhanVien.getTennv());
         holder.txtGT.setText("Giới tính: "+nhanVien.getGioitinh());
         holder.txtNgaySinh.setText("Ngày sinh: "+nhanVien.getNgaysinh());
         holder.txtSDT.setText("Số điện thoại: "+nhanVien.getSdt());
         holder.txtEmail.setText("Email: "+nhanVien.getEmail());
+        holder.btnXoaNV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                miclick.onClickXoaNV(nhanVien);
+            }
+        });
         holder.btnSuaNV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 miclick.onclickSuaNV(nhanVien);
             }
         });
-    }
 
+    }
     @Override
     public int getItemCount() {
         if(dsNV!=null){
@@ -65,7 +74,7 @@ public class AdapterDSNV extends RecyclerView.Adapter<AdapterDSNV.UserViewHolder
 
     public  class UserViewHolder extends RecyclerView.ViewHolder{
         TextView txtTen,txtNgaySinh,txtEmail,txtGT,txtSDT;
-        Button btnSuaNV;
+        Button btnSuaNV,btnXoaNV;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTen=itemView.findViewById(R.id.txtTen);
@@ -74,9 +83,8 @@ public class AdapterDSNV extends RecyclerView.Adapter<AdapterDSNV.UserViewHolder
             txtSDT=itemView.findViewById(R.id.txtSDT);
             txtEmail=itemView.findViewById(R.id.txtEmail);
             btnSuaNV=itemView.findViewById(R.id.btnSuaNV);
+            btnXoaNV=itemView.findViewById(R.id.btnXoa);
         }
-
-
 
     }
 
