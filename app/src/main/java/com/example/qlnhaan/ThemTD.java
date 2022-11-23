@@ -33,7 +33,7 @@ public class ThemTD extends AppCompatActivity {
 DatabaseReference myRef;
 FirebaseStorage mStorage;
 ImageButton imageButton;
-EditText edtTenTD,edtMaTD;
+EditText edtTenTD,edtMaTD,edtGia;
 Button btnThemTD,btnHuy;
 public  static  final int Gallery_Code=1;
 Uri imageUrl=null;
@@ -45,6 +45,7 @@ ProgressDialog progressDialog;
         imageButton=findViewById(R.id.imageButton);
         edtTenTD=findViewById(R.id.edtTenTD);
         edtMaTD=findViewById(R.id.edtMaTD);
+        edtGia=findViewById(R.id.edtGia);
         btnThemTD=findViewById(R.id.btnThemTD);
         btnHuy=findViewById(R.id.btnHuy);
         btnHuy.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +81,8 @@ ProgressDialog progressDialog;
             public void onClick(View view) {
                 final String matd=edtMaTD.getText().toString().trim();
                final String tentd=edtTenTD.getText().toString().trim();
-                if(!(tentd.isEmpty()&&imageUrl!=null)){
+                final String giatd=edtGia.getText().toString().trim();
+                if(!(tentd.isEmpty()&&tentd.isEmpty()&&imageUrl!=null)){
                     progressDialog.setTitle("Loading...");
                     progressDialog.show();
                     StorageReference filepath=mStorage.getReference().child("imagePost").child(imageUrl.getLastPathSegment());
@@ -94,6 +96,7 @@ ProgressDialog progressDialog;
                                     DatabaseReference newPost=myRef.push();
                                     newPost.child("matd").setValue(matd);
                                     newPost.child("tentd").setValue(tentd);
+                                    newPost.child("giatd").setValue(giatd);
                                     newPost.child("anhtd").setValue(task.getResult().toString());
                                     progressDialog.dismiss();
                                     Toast.makeText(ThemTD.this,"Thêm thực đơn thành công", Toast.LENGTH_SHORT).show();

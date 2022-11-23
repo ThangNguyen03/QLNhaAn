@@ -8,14 +8,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <EditText
-            android:id="@+id/edttennv"
+            android:id="@+id/edttentd"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:inputType="text"
             android:layout_marginTop="50dp"
             android:hint="Tên thực đơn"/>
+        <EditText
+            android:id="@+id/edtgiatd"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="text"
+            android:layout_marginTop="50dp"
+            android:hint="Gia"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
