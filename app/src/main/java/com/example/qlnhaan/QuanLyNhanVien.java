@@ -61,10 +61,12 @@ TextView txtThemNV;
                 startActivity(intent);
             }
         });
+
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         recNV.setLayoutManager(linearLayoutManager);
         DividerItemDecoration dividerItemDecoration=new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         recNV.addItemDecoration(dividerItemDecoration);
+
         dsNV=new ArrayList<NhanVien>();
         adapterDSNV=new AdapterDSNV(dsNV, new AdapterDSNV.IClick() {
             @Override

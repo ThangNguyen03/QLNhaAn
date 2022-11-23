@@ -30,7 +30,7 @@ LinearLayout LTTNV,LTKDT,LTTD,LDSBA;
         LTTD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(TrangChu.this,ThemNhanVien.class);
+                Intent intent=new Intent(TrangChu.this,QuanLyThucDon.class);
                 startActivity(intent);
             }
         });

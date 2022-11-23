@@ -16,6 +16,9 @@
         android:theme="@style/Theme.QLNhaAn"
         tools:targetApi="31">
         <activity
+            android:name=".ThemTD"
+            android:exported="false" />
+        <activity
             android:name=".ThemNhanVien"
             android:exported="false" />
         <activity
