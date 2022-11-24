@@ -54,5 +54,9 @@ public class ThucDon {
     public ThucDon() {
     }
 
-
+    public ThucDon(String matd, String tentd, String giatd) {
+        this.matd = matd;
+        this.tentd = tentd;
+        this.giatd = giatd;
+    }
 }

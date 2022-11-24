@@ -1,6 +1,7 @@
 package com.example.qlnhaan;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,7 +39,8 @@ TextView txtThemTD;
 //        myRef=mDatabase.getReference().child("ThucDon");
 //        mStorage=FirebaseStorage.getInstance();
 
-
+//        GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
+//        recTD.setLayoutManager(gridLayoutManager);
         recTD.setLayoutManager(new LinearLayoutManager(this));
 
 
@@ -48,8 +50,10 @@ TextView txtThemTD;
 
        //HienThiListNV();
 
-        FirebaseRecyclerOptions<ThucDon> options=new FirebaseRecyclerOptions.Builder<ThucDon>().setQuery(FirebaseDatabase.getInstance().
+        FirebaseRecyclerOptions<ThucDon> options=new FirebaseRecyclerOptions.Builder<ThucDon>()
+                .setQuery(FirebaseDatabase.getInstance().
                 getReference().child("ThucDon"),ThucDon.class).build();
+
                 adapterUpdateTD=new AdapterUpdateTD(options,this);
                 recTD.setAdapter(adapterUpdateTD);
              txtThemTD.setOnClickListener(new View.OnClickListener() {

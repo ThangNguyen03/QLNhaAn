@@ -34,5 +34,6 @@ LinearLayout LTTNV,LTKDT,LTTD,LDSBA;
                 startActivity(intent);
             }
         });
+        
     }
 }
