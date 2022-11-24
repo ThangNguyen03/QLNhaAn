@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edttenBan"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="text"
+            android:layout_marginTop="50dp"
+            android:hint="Tên ban"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp">
+            <Button
+                android:id="@+id/btnSuaBan"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#03A9F4"
+                android:textColor="@color/black"
+                android:layout_marginRight="20dp"
+                android:text="Sửa"/>
+            <Button
+                android:id="@+id/btnHuy"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#03A9F4"
+                android:textColor="@color/black"
+                android:text="Hủy"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
