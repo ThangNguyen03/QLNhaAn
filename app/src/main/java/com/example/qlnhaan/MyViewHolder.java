@@ -15,6 +15,8 @@ View view;
 Button btnXoaBan,btnSuaBan;
 TextView txtTenThucDon,txtGiaThucDon,txtSoLuong,txtTongTien;
 Button btnXoaTDBA,btnSuaTDBA;
+    TextView txtTenThucDon1,txtGiaThucDon1,txtSoLuong1,txtTongTien1;
+    Button btnXoaTDBA1,btnSuaTDBA1;
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
         txtTenBA=itemView.findViewById(R.id.txtTenBan);
@@ -22,12 +24,15 @@ Button btnXoaTDBA,btnSuaTDBA;
         btnXoaBan=itemView.findViewById(R.id.btnxoaBan);
         btnSuaBan=itemView.findViewById(R.id.btnSuaBan);
 
-        txtTenThucDon=itemView.findViewById(R.id.txtTenThucDon);
-        txtGiaThucDon=itemView.findViewById(R.id.txtGiaThucDon);
-        txtSoLuong=itemView.findViewById(R.id.txtSoLuong);
-        txtTongTien=itemView.findViewById(R.id.txtTongTien);
-        btnXoaTDBA=itemView.findViewById(R.id.btnXoaTDBA);
-        btnSuaTDBA=itemView.findViewById(R.id.btnSuaTDBA);
+
+
+        txtTenThucDon1=itemView.findViewById(R.id.txtTenThucDon1);
+        txtGiaThucDon1=itemView.findViewById(R.id.txtGiaThucDon1);
+        txtSoLuong1=itemView.findViewById(R.id.txtSoLuong1);
+        txtTongTien1=itemView.findViewById(R.id.txtTongTien1);
+        btnXoaTDBA1=itemView.findViewById(R.id.btnXoaTDBA1);
+        btnSuaTDBA1=itemView.findViewById(R.id.btnSuaTDBA1);
+
         view=itemView;
     }
 }

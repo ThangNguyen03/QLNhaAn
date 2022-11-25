@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ThucDonBanAn">
+    tools:context=".ThucDonBanAn1">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +28,10 @@
             android:background="#E8B7C8"
             android:textColor="#0F1C63"/>
     </LinearLayout>
+    <Spinner
+        android:id="@+id/spTenTDBanAn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recTDBA"
         android:layout_width="match_parent"

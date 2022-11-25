@@ -1,7 +1,6 @@
 package com.example.qlnhaan;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,19 +26,14 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.dialogplus.DialogPlus;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import Model.Ban;
-import Model.NhanVien;
-import Model.ThucDon;
 
 public class QuanLyBanAn extends AppCompatActivity {
 TextView txtThemBA;
@@ -54,7 +48,6 @@ private FirebaseRecyclerAdapter<Ban,MyViewHolder> adapter;
         setContentView(R.layout.activity_quan_ly_ban_an);
         txtThemBA=findViewById(R.id.txtThemBA);
         recBan=findViewById(R.id.redBan);
-
         recBan.setHasFixedSize(true);
         recBan.setLayoutManager(new LinearLayoutManager(this));
 
@@ -74,6 +67,7 @@ private FirebaseRecyclerAdapter<Ban,MyViewHolder> adapter;
             @Override
             protected void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Ban model) {
                 final String key=getRef(position).getKey();
+                final String ten=model.getTenban();
                 registerForContextMenu(holder.view);
                 holder.btnSuaBan.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -140,12 +134,17 @@ private FirebaseRecyclerAdapter<Ban,MyViewHolder> adapter;
                         dia.create().show();
                     }
                 });
+
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                    Intent intent=new Intent(getApplicationContext(),ThucDonBanAn.class);
-                    intent.putExtra("key",key);
-                    startActivity(intent);
+                        if(position==0){
+                            Intent intent=new Intent(getApplicationContext(), BanSo1.class);
+                            intent.putExtra("key",key);
+                            intent.putExtra("tenban",ten);
+                            startActivity(intent);
+                        }
+
                     }
                 });
 
@@ -162,24 +161,9 @@ private FirebaseRecyclerAdapter<Ban,MyViewHolder> adapter;
         adapter.startListening();
         recBan.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        getMenuInflater().inflate(R.menu.menulistnv,menu);
-        super.onCreateContextMenu(menu, v, menuInfo);
-    }
-
-    @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.mnXoa:
-                break;
-
-        }
-        return super.onContextItemSelected(item);
 
     }
+
 
 
 }

@@ -9,43 +9,29 @@
         android:layout_height="wrap_content"
         android:layout_weight="9"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
             <TextView
-                android:id="@+id/txtTenThucDon"
+                android:id="@+id/txtTenThucDon1"
                 android:text="Ten"
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
-            <TextView
-                android:id="@+id/txtMenu"
-                android:text="⋮"
-                android:layout_marginLeft="360dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </LinearLayout>
-
         <TextView
-            android:id="@+id/txtGiaThucDon"
+            android:id="@+id/txtGiaThucDon1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtSoLuong"
+            android:id="@+id/txtSoLuong1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtTongTien"
+            android:id="@+id/txtTongTien1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -53,14 +39,14 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnSuaTDBA"
+            android:id="@+id/btnSuaTDBA1"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sửa"/>
 
         <Button
-            android:id="@+id/btnXoaTDBA"
+            android:id="@+id/btnXoaTDBA1"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

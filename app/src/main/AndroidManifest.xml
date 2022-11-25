@@ -16,7 +16,10 @@
         android:theme="@style/Theme.QLNhaAn"
         tools:targetApi="31">
         <activity
-            android:name=".ThucDonBanAn"
+            android:name=".BanSo1"
+            android:exported="false" />
+        <activity
+            android:name=".ThucDonBanAn1"
             android:exported="false" />
         <activity
             android:name=".ThemBA"
