@@ -5,7 +5,7 @@
       <map>
         <entry key="..\:/QLNhaAn/app/src/main/res/drawable/combo.xml" value="0.23" />
         <entry key="..\:/QLNhaAn/app/src/main/res/drawable/combo1.xml" value="0.23" />
-        <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_ban_so1.xml" value="0.25416666666666665" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_ban_so1.xml" value="0.264" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_dang_ky.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_dang_nhap.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_quan_ly_ban_an.xml" value="0.25052083333333336" />
@@ -25,6 +25,7 @@
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogsuaba.xml" value="0.253125" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogsuanv.xml" value="0.2" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogsuatd.xml" value="0.24947916666666667" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogsuathucdonban.xml" value="0.253125" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogthemtdban.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogthemtdban1.xml" value="0.253125" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogthemthucdonbanan.xml" value="0.25416666666666665" />

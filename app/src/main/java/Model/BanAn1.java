@@ -2,7 +2,15 @@ package Model;
 
 public class BanAn1 {
     public String tentd;
-    public  int giatd, sltd,tongtientd;
+    public  int giatd, sltd,tongtientd,tongtienthanhtoan;
+
+    public int getTongtienthanhtoan() {
+        return tongtienthanhtoan;
+    }
+
+    public void setTongtienthanhtoan(int tongtienthanhtoan) {
+        this.tongtienthanhtoan = tongtienthanhtoan;
+    }
 
     public String getTentd() {
         return tentd;

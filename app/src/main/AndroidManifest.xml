@@ -19,9 +19,6 @@
             android:name=".BanSo1"
             android:exported="false" />
         <activity
-            android:name=".ThucDonBanAn1"
-            android:exported="false" />
-        <activity
             android:name=".ThemBA"
             android:exported="false" />
         <activity

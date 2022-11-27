@@ -13,10 +13,9 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 TextView txtTenBA;
 View view;
 Button btnXoaBan,btnSuaBan;
-TextView txtTenThucDon,txtGiaThucDon,txtSoLuong,txtTongTien;
-Button btnXoaTDBA,btnSuaTDBA;
+
     TextView txtTenThucDon1,txtGiaThucDon1,txtSoLuong1,txtTongTien1;
-    Button btnXoaTDBA1,btnSuaTDBA1;
+    Button btnXoaTDBA1;
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
         txtTenBA=itemView.findViewById(R.id.txtTenBan);
@@ -31,7 +30,6 @@ Button btnXoaTDBA,btnSuaTDBA;
         txtSoLuong1=itemView.findViewById(R.id.txtSoLuong1);
         txtTongTien1=itemView.findViewById(R.id.txtTongTien1);
         btnXoaTDBA1=itemView.findViewById(R.id.btnXoaTDBA1);
-        btnSuaTDBA1=itemView.findViewById(R.id.btnSuaTDBA1);
 
         view=itemView;
     }

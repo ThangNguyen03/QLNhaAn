@@ -143,6 +143,7 @@ private FirebaseRecyclerAdapter<Ban,MyViewHolder> adapter;
                             intent.putExtra("key",key);
                             intent.putExtra("tenban",ten);
                             startActivity(intent);
+
                         }
 
                     }
