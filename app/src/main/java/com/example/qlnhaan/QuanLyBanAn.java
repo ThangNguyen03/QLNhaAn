@@ -39,9 +39,9 @@ public class QuanLyBanAn extends AppCompatActivity {
 TextView txtThemBA;
 RecyclerView recBan;
 
-private  FirebaseRecyclerOptions<Ban> options;
+    private  FirebaseRecyclerOptions<Ban> options;
     private DatabaseReference Ref;
-private FirebaseRecyclerAdapter<Ban,MyViewHolder> adapter;
+    private FirebaseRecyclerAdapter<Ban,MyViewHolder> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +68,6 @@ private FirebaseRecyclerAdapter<Ban,MyViewHolder> adapter;
             protected void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull Ban model) {
                 final String key=getRef(position).getKey();
                 final String ten=model.getTenban();
-                registerForContextMenu(holder.view);
                 holder.btnSuaBan.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

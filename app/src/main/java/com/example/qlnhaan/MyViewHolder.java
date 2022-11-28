@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
-TextView txtTenBA;
-View view;
-Button btnXoaBan,btnSuaBan;
+    TextView txtTenBA;
+    View view;
+    Button btnXoaBan,btnSuaBan;
 
     TextView txtTenThucDon1,txtGiaThucDon1,txtSoLuong1,txtTongTien1;
     Button btnXoaTDBA1;
+    TextView txtTrangThaiTT,txtNgayTT,txtTenBanTT,txtTongTienTT;
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
         txtTenBA=itemView.findViewById(R.id.txtTenBan);
@@ -30,6 +31,11 @@ Button btnXoaBan,btnSuaBan;
         txtSoLuong1=itemView.findViewById(R.id.txtSoLuong1);
         txtTongTien1=itemView.findViewById(R.id.txtTongTien1);
         btnXoaTDBA1=itemView.findViewById(R.id.btnXoaTDBA1);
+
+        txtTenBanTT=itemView.findViewById(R.id.txtTenBanTT);
+        txtNgayTT=itemView.findViewById(R.id.txtNgayTT);
+        txtTrangThaiTT=itemView.findViewById(R.id.txtTrangThaiTT);
+        txtTongTienTT=itemView.findViewById(R.id.txtTongTienTT);
 
         view=itemView;
     }

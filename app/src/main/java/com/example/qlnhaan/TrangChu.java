@@ -41,5 +41,12 @@ LinearLayout LTTNV,LTKDT,LTTD,LDSBA;
                 startActivity(intent);
             }
         });
+        LTKDT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(TrangChu.this,QuanLyThongKe.class);
+                startActivity(intent);
+            }
+        });
     }
 }

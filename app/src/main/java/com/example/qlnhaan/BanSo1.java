@@ -26,21 +26,23 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-import Model.Ban;
 import Model.BanAn1;
+import Model.DoanhThu;
 import Model.NhanVien;
+import Model.ThongKeDoanhThu;
 import Model.ThucDon;
 import spiner.IFirebaseLoadDone;
 
@@ -73,8 +75,9 @@ public class BanSo1 extends AppCompatActivity implements IFirebaseLoadDone {
         recTDBA1.setLayoutManager(new LinearLayoutManager(this));
         txtThanhToan=findViewById(R.id.txtThanhToan);
         txtTongTienThanhToan=findViewById(R.id.txtTongTienThanhToan);
-        String ten=getIntent().getStringExtra("tenban");
+
         Ref5= FirebaseDatabase.getInstance().getReference().child("ThongKe");
+
 
 
         txtThanhToan.setOnClickListener(new View.OnClickListener() {
@@ -82,14 +85,42 @@ public class BanSo1 extends AppCompatActivity implements IFirebaseLoadDone {
             public void onClick(View view) {
                 Ref4= FirebaseDatabase.getInstance().getReference().child("ThongKe");
 
-                Calendar calendar=Calendar.getInstance();
-                String currentDate= DateFormat.getDateInstance().format(calendar.getTime());
+                Ref3=FirebaseDatabase.getInstance().getReference("BanAn1");
 
-                String key=Ref4.push().getKey();
-                Ref4.child(key).child("ngay").setValue(currentDate);
-                Ref4.child(key).child("tenban").setValue(ten);
-                Ref4.child(key).child("trangthai").setValue("Đã thanh toán");
+                Ref3.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        List<BanAn1> banAn1s=new ArrayList<>();
+                        for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                            banAn1s.add(dataSnapshot.getValue(BanAn1.class));
+                        }
+                        int tongtientt =0;
+                        for(BanAn1 banAn1:banAn1s){
+                            tongtientt+=banAn1.getTongtientd();
+                        }
+                        String tenbantt=getIntent().getStringExtra("tenban");
+                        String timenow=new  SimpleDateFormat("hh:mm a",Locale.getDefault()).format(new Date());
+                        String datenow=new  SimpleDateFormat("dd/MM/yy",Locale.getDefault()).format(new Date());
+                        String ngaytt=timenow+"-"+datenow;
+                        String trangthaitt="Đã thanh toán";
 
+                        String key=Ref.push().getKey();
+                        Ref4.child(key).child("trangthaitt").setValue(trangthaitt);
+                        Ref4.child(key).child("ngaytt").setValue(ngaytt);
+                        Ref4.child(key).child("tenbantt").setValue(tenbantt);
+                        Ref4.child(key).child("tongtientt").setValue(tongtientt);
+
+                        ThongKeDoanhThu thongKeDoanhThu=new ThongKeDoanhThu(trangthaitt,ngaytt,tenbantt,tongtientt);
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        iFirebaseLoadDone.onFirebaseLoadFailed(error.getMessage());
+
+                    }
+                });
 
 
                 String string="Đã thanh toán";
@@ -279,10 +310,10 @@ public void hienthitong(){
         @Override
         public void onCancelled(@NonNull DatabaseError error) {
             iFirebaseLoadDone.onFirebaseLoadFailed(error.getMessage());
+
         }
     });
 }
-
     @Override
     public void onFirebaseLoadSucces(List<ThucDon> thucDonList) {
         thucDons=thucDonList;
@@ -296,5 +327,15 @@ public void hienthitong(){
     @Override
     public void onFirebaseLoadFailed(String message) {
 
+    }
+    private void  AddTKDT(ThongKeDoanhThu thongKeDoanhThu){
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        DatabaseReference myref=database.getReference("ThongKe");
+        myref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(thongKeDoanhThu).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
     }
 }

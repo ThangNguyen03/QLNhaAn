@@ -35,20 +35,7 @@ TextView txtThemTD;
         txtThemTD=findViewById(R.id.txtThemTD);
         recTD=findViewById(R.id.recTD);
 
-//        mDatabase=FirebaseDatabase.getInstance();
-//        myRef=mDatabase.getReference().child("ThucDon");
-//        mStorage=FirebaseStorage.getInstance();
-
-//        GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
-//        recTD.setLayoutManager(gridLayoutManager);
         recTD.setLayoutManager(new LinearLayoutManager(this));
-
-
-//        dsThucDon=new ArrayList<ThucDon>();
-//        adapterThucDon=new AdapterThucDon(QuanLyThucDon.this,dsThucDon);
-//        recTD.setAdapter(adapterThucDon);
-
-       //HienThiListNV();
 
         FirebaseRecyclerOptions<ThucDon> options=new FirebaseRecyclerOptions.Builder<ThucDon>()
                 .setQuery(FirebaseDatabase.getInstance().
