@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class TrangChu extends AppCompatActivity {
 TextView txtTKDT,txtTTNV,txtTTD,txtDSBA;
+ImageView imageView;
 LinearLayout LTTNV,LTKDT,LTTD,LDSBA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,14 @@ LinearLayout LTTNV,LTKDT,LTTD,LDSBA;
         LTTD=findViewById(R.id.LTTD);
         LDSBA=findViewById(R.id.LDSBA);
         LTTNV=findViewById(R.id.LTTNV);
+        imageView=findViewById(R.id.imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(TrangChu.this,QuanLyThucDon.class);
+                startActivity(intent);
+            }
+        });
         LTTNV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

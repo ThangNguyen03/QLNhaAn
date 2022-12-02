@@ -143,6 +143,36 @@ RecyclerView recBan;
                             intent.putExtra("tenban",ten);
                             startActivity(intent);
 
+                        }else  if(position==1){
+                            Intent intent=new Intent(getApplicationContext(), BanSo2.class);
+                            intent.putExtra("key",key);
+                            intent.putExtra("tenban",ten);
+                            startActivity(intent);
+
+                        } else  if(position==2){
+                            Intent intent=new Intent(getApplicationContext(), BanSo3.class);
+                            intent.putExtra("key",key);
+                            intent.putExtra("tenban",ten);
+                            startActivity(intent);
+
+                        } else  if(position==3){
+                            Intent intent=new Intent(getApplicationContext(), BanSo4.class);
+                            intent.putExtra("key",key);
+                            intent.putExtra("tenban",ten);
+                            startActivity(intent);
+
+                        }else  if(position==4){
+                            Intent intent=new Intent(getApplicationContext(), BanSo5.class);
+                            intent.putExtra("key",key);
+                            intent.putExtra("tenban",ten);
+                            startActivity(intent);
+
+                        }else  if(position==5){
+                            Intent intent=new Intent(getApplicationContext(), BanSo6.class);
+                            intent.putExtra("key",key);
+                            intent.putExtra("tenban",ten);
+                            startActivity(intent);
+
                         }
 
                     }

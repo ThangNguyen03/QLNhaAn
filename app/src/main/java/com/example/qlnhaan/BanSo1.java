@@ -168,8 +168,6 @@ public class BanSo1 extends AppCompatActivity implements IFirebaseLoadDone {
                 adapter.notifyDataSetChanged();
                 hienthitong();
             }
-
-
         });
 
 

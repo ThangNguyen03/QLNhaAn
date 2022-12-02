@@ -6,6 +6,11 @@
         <entry key="..\:/QLNhaAn/app/src/main/res/drawable/combo.xml" value="0.23" />
         <entry key="..\:/QLNhaAn/app/src/main/res/drawable/combo1.xml" value="0.23" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_ban_so1.xml" value="0.264" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_ban_so2.xml" value="0.25052083333333336" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_ban_so3.xml" value="0.25052083333333336" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_ban_so4.xml" value="0.25052083333333336" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_ban_so5.xml" value="0.25052083333333336" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_ban_so6.xml" value="0.25052083333333336" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_dang_ky.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_dang_nhap.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_quan_ly_ban_an.xml" value="0.25052083333333336" />
@@ -28,6 +33,7 @@
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogsuathucdonban.xml" value="0.253125" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogthemtdban.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogthemtdban1.xml" value="0.253125" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogthemtdban2.xml" value="0.264" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/dialogthemthucdonbanan.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/item_select.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/item_thucdon.xml" value="0.253125" />
@@ -37,6 +43,7 @@
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listtd.xml" value="0.24947916666666667" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listtdbanan.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listtdbanan1.xml" value="0.253125" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/listtdbanan2.xml" value="0.25052083333333336" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listthanhtoan.xml" value="0.25052083333333336" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listthongke.xml" value="0.24947916666666667" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listthongkedt.xml" value="0.25052083333333336" />
