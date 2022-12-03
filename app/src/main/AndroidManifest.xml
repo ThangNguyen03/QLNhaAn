@@ -16,6 +16,21 @@
         android:theme="@style/Theme.QLNhaAn"
         tools:targetApi="31">
         <activity
+            android:name=".BanSo6"
+            android:exported="false" />
+        <activity
+            android:name=".BanSo5"
+            android:exported="false" />
+        <activity
+            android:name=".BanSo4"
+            android:exported="false" />
+        <activity
+            android:name=".BanSo3"
+            android:exported="false" />
+        <activity
+            android:name=".BanSo2"
+            android:exported="false" />
+        <activity
             android:name=".BanSo1"
             android:exported="false" />
         <activity

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".App"
+    android:background="@drawable/backgrdn"
     android:orientation="vertical">
     <ImageView
         android:layout_width="500px"
@@ -31,7 +32,7 @@
             android:id="@+id/btnDangNhap"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#03A9F4"
+            android:backgroundTint="#BFABAB"
             android:textColor="@color/black"
             android:layout_marginRight="20dp"
             android:text="Đăng nhập"/>
@@ -39,7 +40,7 @@
             android:id="@+id/btnDangKy"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#03A9F4"
+            android:backgroundTint="#BFABAB"
             android:textColor="@color/black"
             android:text="Đăng ký"/>
     </LinearLayout>

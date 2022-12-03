@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/QLNhaAn/app/src/main/res/drawable/backgrdn.xml" value="0.219" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/drawable/butonn.xml" value="0.219" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/drawable/color.xml" value="0.219" />
         <entry key="..\:/QLNhaAn/app/src/main/res/drawable/combo.xml" value="0.23" />
         <entry key="..\:/QLNhaAn/app/src/main/res/drawable/combo1.xml" value="0.23" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/activity_ban_so1.xml" value="0.264" />
@@ -39,6 +42,8 @@
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/item_thucdon.xml" value="0.253125" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listadmin.xml" value="0.25416666666666665" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listbanan.xml" value="0.253125" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/listdsbanan.xml" value="0.2375" />
+        <entry key="..\:/QLNhaAn/app/src/main/res/layout/listdsbanan2.xml" value="0.2375" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listnv.xml" value="0.2" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listtd.xml" value="0.24947916666666667" />
         <entry key="..\:/QLNhaAn/app/src/main/res/layout/listtdbanan.xml" value="0.25416666666666665" />
