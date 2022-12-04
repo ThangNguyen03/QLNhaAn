@@ -56,7 +56,7 @@ public class BanSo1 extends AppCompatActivity implements IFirebaseLoadDone {
     EditText edtSoLuongTDBA;
     private FirebaseRecyclerAdapter<BanAn1,MyViewHolder> adapter;
     IFirebaseLoadDone iFirebaseLoadDone;
-    DatabaseReference Ref1,Ref2,Ref3,Ref4,Ref5;
+    DatabaseReference Ref1,Ref2,Ref3,Ref4,Ref5,Ref6;
     List<ThucDon> thucDons;
     boolean chk=true;
     BottomSheetDialog bottomSheetDialog;
@@ -78,13 +78,10 @@ public class BanSo1 extends AppCompatActivity implements IFirebaseLoadDone {
 
         Ref5= FirebaseDatabase.getInstance().getReference().child("ThongKe");
 
-
-
         txtThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Ref4= FirebaseDatabase.getInstance().getReference().child("ThongKe");
-
                 Ref3=FirebaseDatabase.getInstance().getReference("BanAn1");
 
                 Ref3.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -100,17 +97,19 @@ public class BanSo1 extends AppCompatActivity implements IFirebaseLoadDone {
                         }
                         String tenbantt=getIntent().getStringExtra("tenban");
                         String timenow=new  SimpleDateFormat("hh:mm a",Locale.getDefault()).format(new Date());
-                        String datenow=new  SimpleDateFormat("dd/MM/yy",Locale.getDefault()).format(new Date());
-                        String ngaytt=timenow+"-"+datenow;
+                        String ngaynow=new  SimpleDateFormat("dd/MM/yy",Locale.getDefault()).format(new Date());
+                        String ngaytt=timenow+"-"+ngaynow;
                         String trangthaitt="Đã thanh toán";
 
-                        String key=Ref.push().getKey();
+
+                        String key=Ref4.push().getKey();
                         Ref4.child(key).child("trangthaitt").setValue(trangthaitt);
                         Ref4.child(key).child("ngaytt").setValue(ngaytt);
                         Ref4.child(key).child("tenbantt").setValue(tenbantt);
                         Ref4.child(key).child("tongtientt").setValue(tongtientt);
+                        Ref4.child(key).child("ngaynow").setValue(ngaynow);
 
-                        ThongKeDoanhThu thongKeDoanhThu=new ThongKeDoanhThu(trangthaitt,ngaytt,tenbantt,tongtientt);
+                        ThongKeDoanhThu thongKeDoanhThu=new ThongKeDoanhThu(trangthaitt,ngaytt,tenbantt,tongtientt,ngaynow);
 
 
                     }
@@ -164,7 +163,7 @@ public class BanSo1 extends AppCompatActivity implements IFirebaseLoadDone {
 
                 BanAn1 banAn1=new BanAn1(tentd,giatd,sltd,tongtientd);
                 dsbanan1.add(banAn1);
-                Toast.makeText(BanSo1.this,"Thêm thuc don thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BanSo1.this,"Thêm thực đơn thành công", Toast.LENGTH_SHORT).show();
                 adapter.notifyDataSetChanged();
                 hienthitong();
             }
@@ -220,9 +219,9 @@ public class BanSo1 extends AppCompatActivity implements IFirebaseLoadDone {
             protected void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull BanAn1 model) {
 
                 holder.txtTenThucDon1.setText(model.getTentd());
-                holder.txtGiaThucDon1.setText(model.getGiatd()+"");
-                holder.txtSoLuong1.setText(model.getSltd()+"");
-                holder.txtTongTien1.setText(model.getTongtientd()+"");
+                holder.txtGiaThucDon1.setText("Giá: "+model.getGiatd()+""+"VND");
+                holder.txtSoLuong1.setText("Số lượng: "+model.getSltd()+"");
+                holder.txtTongTien1.setText("Tổng tiền: "+model.getTongtientd()+""+"VND");
 
 
 
@@ -301,7 +300,7 @@ public void hienthitong(){
             for(BanAn1 banAn1:banAn1s){
                 t+=banAn1.getTongtientd();
             }
-            txtTongTienThanhToan.setText(t+"");
+            txtTongTienThanhToan.setText("TỔNG TIỀN: "+t+""+"VND");
 
         }
 

@@ -173,6 +173,11 @@ RecyclerView recBan;
                             intent.putExtra("tenban",ten);
                             startActivity(intent);
 
+                        }else{
+                            Intent intent=new Intent(getApplicationContext(), BANAN.class);
+                            intent.putExtra("key",key);
+                            intent.putExtra("tenban",ten);
+                            startActivity(intent);
                         }
 
                     }

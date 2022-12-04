@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/backgrdn1"
     tools:context=".TrangChu">
     <TextView
         android:layout_width="match_parent"
@@ -121,6 +122,7 @@
                 android:text="Menu nhà ăn"
                 />
             <TextView
+                android:id="@+id/txtXemTCTD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="170dp"
@@ -171,13 +173,15 @@
         android:text="Thanh toán hôm nay"
         />
     <TextView
+        android:id="@+id/txtXemTCTK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:text="Xem tất cả"/>
 </LinearLayout>
 </LinearLayout>
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recTKNow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"/>

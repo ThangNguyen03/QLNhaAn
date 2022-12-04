@@ -97,17 +97,18 @@ public class BanSo5 extends AppCompatActivity implements IFirebaseLoadDone {
                             tongtientt+=banAn1.getTongtientd();
                         }
                         String tenbantt=getIntent().getStringExtra("tenban");
-                        String timenow=new SimpleDateFormat("hh:mm a", Locale.getDefault()).format(new Date());
-                        String datenow=new  SimpleDateFormat("dd/MM/yy",Locale.getDefault()).format(new Date());
-                        String ngaytt=timenow+"-"+datenow;
+                        String timenow=new  SimpleDateFormat("hh:mm a",Locale.getDefault()).format(new Date());
+                        String ngaynow=new  SimpleDateFormat("dd/MM/yy",Locale.getDefault()).format(new Date());
+                        String ngaytt=timenow+"-"+ngaynow;
                         String trangthaitt="Đã thanh toán";
 
-                        String key=Ref.push().getKey();
+
+                        String key=Ref4.push().getKey();
                         Ref4.child(key).child("trangthaitt").setValue(trangthaitt);
                         Ref4.child(key).child("ngaytt").setValue(ngaytt);
                         Ref4.child(key).child("tenbantt").setValue(tenbantt);
                         Ref4.child(key).child("tongtientt").setValue(tongtientt);
-
+                        Ref4.child(key).child("ngaynow").setValue(ngaynow);
                         ThongKeDoanhThu thongKeDoanhThu=new ThongKeDoanhThu(trangthaitt,ngaytt,tenbantt,tongtientt);
 
 
@@ -162,7 +163,7 @@ public class BanSo5 extends AppCompatActivity implements IFirebaseLoadDone {
 
                 BanAn1 banAn1=new BanAn1(tentd,giatd,sltd,tongtientd);
                 dsbanan1.add(banAn1);
-                Toast.makeText(BanSo5.this,"Thêm thuc don thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BanSo5.this,"Thêm thực đơn thành công", Toast.LENGTH_SHORT).show();
                 adapter.notifyDataSetChanged();
                 hienthitong();
             }
@@ -218,9 +219,9 @@ public class BanSo5 extends AppCompatActivity implements IFirebaseLoadDone {
             protected void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull BanAn1 model) {
 
                 holder.txtTenThucDon1.setText(model.getTentd());
-                holder.txtGiaThucDon1.setText(model.getGiatd()+"");
-                holder.txtSoLuong1.setText(model.getSltd()+"");
-                holder.txtTongTien1.setText(model.getTongtientd()+"");
+                holder.txtGiaThucDon1.setText("Giá: "+model.getGiatd()+""+"VND");
+                holder.txtSoLuong1.setText("Số lượng: "+model.getSltd()+"");
+                holder.txtTongTien1.setText("Tổng tiền: "+model.getTongtientd()+""+"VND");
 
 
 
@@ -299,7 +300,7 @@ public class BanSo5 extends AppCompatActivity implements IFirebaseLoadDone {
                 for(BanAn1 banAn1:banAn1s){
                     t+=banAn1.getTongtientd();
                 }
-                txtTongTienThanhToan.setText(t+"");
+                txtTongTienThanhToan.setText("TỔNG TIỀN: "+t+""+"VND");
 
             }
 

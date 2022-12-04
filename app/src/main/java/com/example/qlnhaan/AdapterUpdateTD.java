@@ -46,7 +46,7 @@ public class AdapterUpdateTD extends FirebaseRecyclerAdapter<ThucDon,AdapterUpda
     protected void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position, @NonNull ThucDon model) {
 
         holder.txtTenTD.setText(model.getTentd());
-        holder.txtGiaTD.setText(model.getGiatd());
+        holder.txtGiaTD.setText(model.getGiatd()+"VND");
         String imageUri;
         imageUri=model.getAnhtd();
         Picasso.get().load(imageUri).into(holder.imageView);
@@ -100,9 +100,20 @@ public class AdapterUpdateTD extends FirebaseRecyclerAdapter<ThucDon,AdapterUpda
          dialogPlus.dismiss();
         }
         });
+
                 btnSuaTD.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if(edttentd.getText().toString().isEmpty()){
+                            edttentd.setError("Tên không được để trống");
+                            edttentd.requestFocus();
+                            return;
+                        }
+                        if(edtgiatd.getText().toString().isEmpty()){
+                            edtgiatd.setError("Tên không được để trống");
+                            edtgiatd.requestFocus();
+                            return;
+                        }
                         Map<String,Object> map=new HashMap<>();
                         map.put("tentd",edttentd.getText().toString());
                         map.put("giatd",edtgiatd.getText().toString());

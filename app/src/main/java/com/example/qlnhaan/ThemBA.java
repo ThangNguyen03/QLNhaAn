@@ -28,12 +28,19 @@ private DatabaseReference Ref;
         edtTenBan=findViewById(R.id.edtTenBab);
         edtMaBan=findViewById(R.id.edtMaBan);
         btnThemBan=findViewById(R.id.btnThemBan);
+        String ten=edtTenBan.getText().toString().trim();
         Ref=FirebaseDatabase.getInstance().getReference().child("BanAn");
         btnThemBan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int maban=Integer.parseInt(edtMaBan.getText().toString().trim());
                 String tenban=edtTenBan.getText().toString().trim();
+
+                if(edtTenBan.getText().toString().trim().isEmpty()){
+                    edtTenBan.setError("Tên không được để trống");
+                    edtTenBan.requestFocus();
+                    return;
+                }
                 String key=Ref.push().getKey();
                 Ref.child(key).child("maban").setValue(maban);
                 Ref.child(key).child("tenban").setValue(tenban);

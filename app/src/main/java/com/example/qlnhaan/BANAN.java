@@ -43,8 +43,7 @@ import Model.ThongKeDoanhThu;
 import Model.ThucDon;
 import spiner.IFirebaseLoadDone;
 
-public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
-
+public class BANAN extends AppCompatActivity implements IFirebaseLoadDone{
     TextView txtTenBanAn1;
     private FirebaseRecyclerOptions<BanAn1> options;
     DatabaseReference Ref;
@@ -54,7 +53,7 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
     EditText edtSoLuongTDBA;
     private FirebaseRecyclerAdapter<BanAn1,MyViewHolder> adapter;
     IFirebaseLoadDone iFirebaseLoadDone;
-    DatabaseReference Ref1,Ref2,Ref3,Ref4,Ref5;
+    DatabaseReference Ref1,Ref2,Ref3,Ref4,Ref5,Ref6;
     List<ThucDon> thucDons;
     boolean chk=true;
     BottomSheetDialog bottomSheetDialog;
@@ -73,17 +72,14 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
         recTDBA1.setLayoutManager(new LinearLayoutManager(this));
         txtThanhToan=findViewById(R.id.txtThanhToan);
         txtTongTienThanhToan=findViewById(R.id.txtTongTienThanhToan);
-
+        String tenbanan=getIntent().getStringExtra("tenban");
         Ref5= FirebaseDatabase.getInstance().getReference().child("ThongKe");
-
-
 
         txtThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Ref4= FirebaseDatabase.getInstance().getReference().child("ThongKe");
-
-                Ref3=FirebaseDatabase.getInstance().getReference("BanAn3");
+                Ref3=FirebaseDatabase.getInstance().getReference(tenbanan);
 
                 Ref3.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -97,7 +93,7 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
                             tongtientt+=banAn1.getTongtientd();
                         }
                         String tenbantt=getIntent().getStringExtra("tenban");
-                        String timenow=new  SimpleDateFormat("hh:mm a",Locale.getDefault()).format(new Date());
+                        String timenow=new SimpleDateFormat("hh:mm a", Locale.getDefault()).format(new Date());
                         String ngaynow=new  SimpleDateFormat("dd/MM/yy",Locale.getDefault()).format(new Date());
                         String ngaytt=timenow+"-"+ngaynow;
                         String trangthaitt="Đã thanh toán";
@@ -110,7 +106,7 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
                         Ref4.child(key).child("tongtientt").setValue(tongtientt);
                         Ref4.child(key).child("ngaynow").setValue(ngaynow);
 
-                        ThongKeDoanhThu thongKeDoanhThu=new ThongKeDoanhThu(trangthaitt,ngaytt,tenbantt,tongtientt);
+                        ThongKeDoanhThu thongKeDoanhThu=new ThongKeDoanhThu(trangthaitt,ngaytt,tenbantt,tongtientt,ngaynow);
 
 
                     }
@@ -125,9 +121,9 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
 
                 String string="Đã thanh toán";
                 txtThanhToan.setText(string.toString());
-                FirebaseDatabase.getInstance().getReference().child("BanAn3").removeValue();
+                FirebaseDatabase.getInstance().getReference().child(tenbanan).removeValue();
                 txtTongTienThanhToan.setText("0");
-                Toast.makeText(BanSo3.this,"Đã thanh toán",Toast.LENGTH_SHORT).show();
+                Toast.makeText(BANAN.this,"Đã thanh toán",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -151,7 +147,7 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
             public void onClick(View view) {
 
 
-                Ref= FirebaseDatabase.getInstance().getReference().child("BanAn3");
+                Ref= FirebaseDatabase.getInstance().getReference().child(tenbanan);
                 int giatd=Integer.parseInt(txtGiaTDBA.getText().toString().trim());
                 String tentd=txtTenTDBA.getText().toString().trim();
                 int sltd=Integer.parseInt(edtSoLuongTDBA.getText().toString().trim());
@@ -164,7 +160,7 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
 
                 BanAn1 banAn1=new BanAn1(tentd,giatd,sltd,tongtientd);
                 dsbanan1.add(banAn1);
-                Toast.makeText(BanSo3.this,"Thêm thực đơn thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BANAN.this,"Thêm thực đơn thành công", Toast.LENGTH_SHORT).show();
                 adapter.notifyDataSetChanged();
                 hienthitong();
             }
@@ -213,7 +209,7 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
         hienthitong();
 
 
-        Ref=FirebaseDatabase.getInstance().getReference().child("BanAn3");
+        Ref=FirebaseDatabase.getInstance().getReference().child(tenbanan);
         options=new FirebaseRecyclerOptions.Builder<BanAn1>().setQuery(Ref,BanAn1.class).build();
         adapter=new FirebaseRecyclerAdapter<BanAn1, MyViewHolder>(options) {
             @Override
@@ -229,7 +225,7 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
                 holder.btnXoaTDBA1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        AlertDialog.Builder dia=new AlertDialog.Builder(BanSo3.this).setTitle("Bạn có chắc chắn muốn xóa không?")
+                        AlertDialog.Builder dia=new AlertDialog.Builder(BANAN.this).setTitle("Bạn có chắc chắn muốn xóa không?")
                                 .setNegativeButton("Không", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -238,11 +234,11 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
                                 }).setPositiveButton("Có", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-                                        FirebaseDatabase.getInstance().getReference().child("BanAn3").child(getRef(position).getKey())
+                                        FirebaseDatabase.getInstance().getReference().child(tenbanan).child(getRef(position).getKey())
                                                 .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
-                                                        Toast.makeText(BanSo3.this,"Xóa thực đơn thành công",Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(BANAN.this,"Xóa thực đơn thành công",Toast.LENGTH_SHORT).show();
                                                         hienthitong();
                                                     }
                                                 });
@@ -288,7 +284,8 @@ public class BanSo3 extends AppCompatActivity implements IFirebaseLoadDone {
 
 
     public void hienthitong(){
-        Ref3=FirebaseDatabase.getInstance().getReference("BanAn3");
+        String tenbanan=getIntent().getStringExtra("tenban");
+        Ref3=FirebaseDatabase.getInstance().getReference(tenbanan);
         iFirebaseLoadDone= (IFirebaseLoadDone) this;
         Ref3.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

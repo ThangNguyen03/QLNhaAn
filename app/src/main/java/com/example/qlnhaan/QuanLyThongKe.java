@@ -28,9 +28,6 @@ import Model.ThongKeDoanhThu;
 
 public class QuanLyThongKe extends AppCompatActivity {
     RecyclerView recTK;
-    private FirebaseRecyclerOptions<ThongKeDoanhThu> options;
-    private DatabaseReference Ref;
-    private FirebaseRecyclerAdapter<ThongKeDoanhThu,MyViewHolder> adapter;
     List<ThongKeDoanhThu> dsTKDT;
     AdapterTKDT adapterTKDT;
     @Override

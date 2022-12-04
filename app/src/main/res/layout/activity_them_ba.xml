@@ -5,20 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/backgrdn1"
+
     tools:context=".ThemBA">
     <EditText
+        android:layout_marginTop="50dp"
         android:id="@+id/edtMaBan"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:hint="Ma ban"/>
+        android:layout_marginLeft="70dp"
+        android:inputType="number"
+        android:hint="Mã bàn"/>
     <EditText
         android:id="@+id/edtTenBab"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
+        android:inputType="text"
         android:layout_height="wrap_content"
-        android:hint="Ten ban"/>
+        android:layout_marginLeft="70dp"
+        android:hint="Tên bàn"/>
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Them"
+    android:text="thêm"
+    android:layout_marginLeft="70dp"
     android:id="@+id/btnThemBan"/>
 </LinearLayout>

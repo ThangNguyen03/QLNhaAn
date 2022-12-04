@@ -8,6 +8,23 @@ public class ThongKeDoanhThu {
     public String ngaytt;
     public String tenbantt;
     public int tongtientt;
+    public String ngaynow;
+
+    public String getNgaynow() {
+        return ngaynow;
+    }
+
+    public void setNgaynow(String ngaynow) {
+        this.ngaynow = ngaynow;
+    }
+
+    public ThongKeDoanhThu(String trangthaitt, String ngaytt, String tenbantt, int tongtientt, String ngaynow) {
+        this.trangthaitt = trangthaitt;
+        this.ngaytt = ngaytt;
+        this.tenbantt = tenbantt;
+        this.tongtientt = tongtientt;
+        this.ngaynow = ngaynow;
+    }
 
     public String getTrangthaitt() {
         return trangthaitt;
@@ -56,6 +73,7 @@ public class ThongKeDoanhThu {
         result.put("ngaytt",ngaytt);
         result.put("tenbantt",tenbantt);
         result.put("tongtientt",tongtientt);
+        result.put("ngaynow",ngaynow);
         return result;
 
     }

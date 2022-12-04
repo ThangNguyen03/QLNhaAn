@@ -37,7 +37,7 @@ public class AdapterTKDT extends RecyclerView.Adapter<AdapterTKDT.UserViewHolder
         holder.txtNgayTT.setText(thongKeDoanhThu.getNgaytt());
         holder.txtTrangThaiTT.setText(thongKeDoanhThu.getTrangthaitt());
         holder.txtTenBanTT.setText(thongKeDoanhThu.getTenbantt());
-        holder.txtTongTienTT.setText(thongKeDoanhThu.getTongtientt()+"");
+        holder.txtTongTienTT.setText(thongKeDoanhThu.getTongtientt()+""+"VND");
     }
 
     @Override

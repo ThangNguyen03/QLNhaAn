@@ -5,7 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Database;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -82,6 +84,34 @@ ProgressDialog progressDialog;
                 final String matd=edtMaTD.getText().toString().trim();
                final String tentd=edtTenTD.getText().toString().trim();
                 final String giatd=edtGia.getText().toString().trim();
+                if(matd.isEmpty()){
+                    edtMaTD.setError("Tên không được để trống");
+                    edtMaTD.requestFocus();
+                    return;
+                }else
+                if(tentd.isEmpty()){
+                    edtTenTD.setError("Tên không được để trống");
+                    edtTenTD.requestFocus();
+                    return;
+                }else
+                if(giatd.isEmpty()){
+                    edtGia.setError("Tên không được để trống");
+                    edtGia.requestFocus();
+                    return;
+                }else
+               {
+
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ThemTD.this);
+                    alertDialogBuilder.setTitle("Vui lòng chọn ảnh");
+                   alertDialogBuilder.setNegativeButton("Không đồng ý", new DialogInterface.OnClickListener() {
+                       @Override
+                       public void onClick(DialogInterface dialog, int which) {
+                           Toast.makeText(ThemTD.this,"Bạn đã click vào nút không đồng ý",Toast.LENGTH_SHORT).show();
+                       }
+                   });
+                   AlertDialog alertDialog = alertDialogBuilder.create();
+                   alertDialog.show();
+                }
                 if(!(tentd.isEmpty()&&tentd.isEmpty()&&imageUrl!=null)){
                     progressDialog.setTitle("Loading...");
                     progressDialog.show();
@@ -92,6 +122,7 @@ ProgressDialog progressDialog;
                             Task<Uri> downloadUrl=taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Uri> task) {
+
                                     String t=task.getResult().toString();
                                     DatabaseReference newPost=myRef.push();
                                     newPost.child("matd").setValue(matd);

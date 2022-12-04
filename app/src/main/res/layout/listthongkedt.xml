@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:layout_marginTop="15dp"
     android:background="@color/teal_200"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -12,10 +13,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
+            android:textSize="20dp"
             android:text="Trang thai"
             android:id="@+id/txtTrangThaiTT"/>
         <TextView
             android:layout_width="0dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:text="Trang thai"
@@ -27,12 +30,15 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <TextView
+        android:textSize="20dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:text="Trang thai"
         android:id="@+id/txtTenBanTT"/>
     <TextView
+        android:textSize="20dp"
+        android:textColor="#F44336"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="5"

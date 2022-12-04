@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BanSo1">
-
+    tools:context=".BANAN">
     <TextView
         android:id="@+id/txtTenBanAn1"
         android:layout_width="164dp"
@@ -52,7 +51,7 @@
         android:layout_marginTop="105dp"
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="588dp"
-       />
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recTDBA1"
@@ -84,5 +83,4 @@
         android:textAlignment="center"
         android:textColor="@color/teal_200"
         android:textSize="25dp" />
-
 </RelativeLayout>

@@ -22,7 +22,7 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:inputType="text"
+            android:inputType="number"
             android:layout_marginTop="50dp"
             android:hint="Gia"/>
 
