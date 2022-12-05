@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="8"
-            android:text="Quản lý Thuc don"
+            android:text="Quản lý thực đơn"
             android:textSize="30dp"
             android:background="#E8B7C8"
             android:textColor="#0F1C63"/>
