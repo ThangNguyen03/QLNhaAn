@@ -88,29 +88,16 @@ ProgressDialog progressDialog;
                     edtMaTD.setError("Tên không được để trống");
                     edtMaTD.requestFocus();
                     return;
-                }else
+                }
                 if(tentd.isEmpty()){
                     edtTenTD.setError("Tên không được để trống");
                     edtTenTD.requestFocus();
                     return;
-                }else
+                }
                 if(giatd.isEmpty()){
                     edtGia.setError("Tên không được để trống");
                     edtGia.requestFocus();
                     return;
-                }else
-               {
-
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ThemTD.this);
-                    alertDialogBuilder.setTitle("Vui lòng chọn ảnh");
-                   alertDialogBuilder.setNegativeButton("Không đồng ý", new DialogInterface.OnClickListener() {
-                       @Override
-                       public void onClick(DialogInterface dialog, int which) {
-                           Toast.makeText(ThemTD.this,"Bạn đã click vào nút không đồng ý",Toast.LENGTH_SHORT).show();
-                       }
-                   });
-                   AlertDialog alertDialog = alertDialogBuilder.create();
-                   alertDialog.show();
                 }
                 if(!(tentd.isEmpty()&&tentd.isEmpty()&&imageUrl!=null)){
                     progressDialog.setTitle("Loading...");

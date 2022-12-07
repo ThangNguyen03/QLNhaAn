@@ -1,4 +1,4 @@
-package com.example.qlnhaan;
+package Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.qlnhaan.R;
+
 import java.util.List;
 
-import Model.NhanVien;
 import Model.ThongKeDoanhThu;
 
 public class AdapterTKDT extends RecyclerView.Adapter<AdapterTKDT.UserViewHolder> {

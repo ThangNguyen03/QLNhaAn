@@ -1,7 +1,6 @@
 package com.example.qlnhaan;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,8 +39,6 @@ import java.util.List;
 import java.util.Locale;
 
 import Model.BanAn1;
-import Model.DoanhThu;
-import Model.NhanVien;
 import Model.ThongKeDoanhThu;
 import Model.ThucDon;
 import spiner.IFirebaseLoadDone;
